@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINE | 始終陪伴在你身旁。</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: Arial;
+        }
+
+        .header {
+            position: fixed;
+            font-weight: bold;
+            width: 100%;
+            background: rgba(255, 255, 255, 80%);
+            border: 1px solid #ccc;
+        }
+
+        .header .logo a {
+            color: black;
+            text-decoration: none;
+            position: absolute;
+            display: inline-block;
+            line-height: 50px;
+            padding: 10px 20px;
+        }
+
+        .header nav {
+            text-align: center;
+        }
+
+        .header nav a {
+            display: inline-block;
+            line-height: 50px;
+            text-decoration: none;
+            color: #000;
+            padding: 10px 40px;
+        }
+
+        .banner img{
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: rgb(13, 173, 13);
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .itemgroup {
+            width: 1260px;
+            margin: auto;
+        }
+
+        .item {
+            display: flex;
+        }
+
+        .item .pic {
+            width: 50%;
+        }
+
+        .item .pic img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .item .text {
+            width: 50%;
+            margin: auto;
+            padding-left: 90px;
+            box-sizing: border-box;
+            line-height: 1.8;
+        }
+
+        .item .text img {
+            width: 70px;
+        }
+
+        /* 反向(偶數) */
+        .item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .text a {
+            margin: 15px 0px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: black;
+            border: .5px solid #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 5%;
+            /* transition: 屬性 轉換時間 延遲執行時間 速度; */
+            transition: all 2s 0;
+        }
+
+        .text a:hover {
+            background-color: rgb(13, 173, 13);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="#">LINE</a>
+        </div>
+        <nav>
+            <a href="#">Life on LINE</a>
+            <a href="#">通訊軟體</a>
+            <a href="#">服務總覽</a>
+        </nav>
+    </div>
+    <div class="banner">
+        <img src="789.jpg">
+    </div>
+    <div class="itemgroup">
+        <div class="item">
+            <div class="pic">
+                <img src="01.png">
+            </div>
+            <div class="text">
+                <img src="1.png">
+                <h1>LINE TODAY</h1>
+                <h2>隨點隨看 生活快充</h2>
+                <p>最即時的新聞、影音、運動賽事和娛樂內容直播，讓你話題<br>永不斷線，LINE TODAY陪伴您的每一天！</p>
+                <a href="#">其他詳細資訊</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="02.png">
+            </div>
+            <div class="text">
+                <img src="2.png">
+                <h1>LINE貼文串</h1>
+                <h2>探索樂趣，分享生活</h2>
+                <p>在貼文串追蹤你的最愛．有感內容不錯過。<br>
+                    打造你的個人閱知頻道，探索生活大小事。<br>
+                    分享所見所聞，串連人際、啟發創意的無限可能！</p>
+                <a href="#">其他詳細資訊</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="03.png">
+            </div>
+            <div class="text">
+                <img src="3.png">
+                <h1>LINE Pay</h1>
+                <h2>付款、轉帳、生活繳費，輕鬆簡單又便利！</h2>
+                <p>付款簡單又便利，還能輕鬆轉帳給LINE好友，動動手指輕鬆<br>完成日常生活各種帳單繳費， 免出門省時又省力。</p>
+                <a href="#">其他詳細資訊</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="04.png">
+            </div>
+            <div class="text">
+                <img src="4.png">
+                <h1>LINE購物</h1>
+                <h2>先LINE購物再購物</h2>
+                <p>涵蓋各大購物、拍賣、精品、通路、旅遊、及票券商店，輕<br>鬆貨比五百家，一站比價三千萬筆商品，再享LINE POINTS<br>回饋賺不停！</p>
+                <a href="#">其他詳細資訊</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="05.png">
+            </div>
+            <div class="text">
+                <img src="5.png">
+                <h1>LINE TV</h1>
+                <h2>共享追劇生活</h2>
+                <p>和朋友一起追劇，不錯過最新、最熱門、最潮的話題大劇，<br>即時分享娛樂影音，展開精彩生活故事，LINE TV是您的追<br>劇第一選擇！</p>
+                <a href="#">其他詳細資訊</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
