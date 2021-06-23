@@ -1,0 +1,309 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 微軟正黑體;
+}
+.path{
+    width: 100%;
+    position: fixed;
+    background-color: rgb(13, 28, 99);
+    padding: 5px 0px;
+    text-align: right;
+    z-index: 1;
+}
+.log-in a{
+    text-decoration: none;
+    color: white;
+    margin: 15px 8px;
+}
+.log-in i{
+    color: black;
+}
+.log-in a:first-child::after {
+    content: '|';
+    padding: 0 8px;
+    color:white;
+    position: absolute;
+}
+.log-in a:hover{
+    color: rgb(57, 126, 255);
+}
+.header{
+    width: 100%;
+    position: sticky;
+    top: 33px;
+    display: flex;
+    padding: 20px 0;
+    background-color: white;
+    z-index: 1;
+}
+.header .logo{
+    margin: 5px 100px;
+}
+.header .logo img{
+    width: 160px;
+}
+.header nav a{
+    color: rgb(13, 28, 99);
+    text-decoration: none;
+    line-height: 40px;
+    margin: 0 10px;
+}
+.header nav a:hover{
+    color: rgb(79, 145, 245);
+    border-bottom: 2px solid rgb(79, 145, 245);
+}
+.header .for-free a{
+    text-decoration: none;
+    margin: 0 15px 0 360px;
+    line-height: 40px;
+    border-radius: 80px;
+    padding: 8px 16px;
+    color: white;
+    background-color: rgb(24, 104, 224);
+}
+.header .for-free a:hover{
+    background-color: rgb(18, 85, 187);
+}
+.banner{
+    position: relative;
+    margin-top: 30px;
+}
+.banner img{
+    width: 100%;
+}
+.banner .banner-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color:white;
+    padding: 200px 100px;
+}
+.banner .banner-text h2{
+    font-size: 40px;
+}
+.banner .banner-text p{
+    margin-top: 30px;
+    line-height: 30px;
+}
+.banner-text .email-type{
+    display: flex;
+}
+.banner-text .email-type input{
+    width: 280px;
+    height: 30px;
+    margin: 30px 0 0 0;
+    background-color:transparent;
+    color: white;
+    border: none;
+}
+.banner-text .email-type button{
+    background-color: rgb(24, 104, 224);
+    color: white;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 80px;
+    margin: 24px 0 0 10px ;
+}
+.banner-text .email-type button:hover{
+    background-color: rgb(18, 85, 187);
+}
+.about h2{
+    text-align: center;
+    margin: 60px 0 30px 0;
+    font-size: 36px;
+    line-height: 1.5;
+}
+.about p{
+    text-align: center;
+    font-size: 16px;
+    line-height: 2;
+}
+.wrap{
+    width: 1160px;
+    margin: auto;
+}
+.item{
+    display: flex;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    margin-top: 140px;
+    padding-bottom: 140px;
+}
+.item:nth-child(4){
+    border-bottom: none;
+}
+.item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+.item .pic{
+    width: 580px;
+}
+.item .pic img{
+    width: 100%
+}
+.item .text{
+    margin: auto;
+    width: 580px;
+}
+.wrap .item .text h3{
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.wrap .item .text p{
+    font-size: 16px;
+    line-height: 2;
+    margin: 10px 0;
+}
+.item .text .list{
+    display: flex;
+    margin: 20px 0;
+}
+.item .text .list i{
+    color:rgb(79, 145, 245);
+    background-color: rgb(215, 228, 247);
+    border-radius: 50%;
+    padding: 3px ;
+    margin: 5px 5px;
+}
+.item .text .list li{
+    margin-right: 38px;
+}
+.item .text .more a{
+    text-decoration: none;
+    color:rgb(79, 145, 245);
+    font-weight:bold;
+}
+.service{
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+    padding: 50px 0;
+}
+.service h2{
+    font-size: 36px;
+    text-align: center;
+    margin-bottom:50px;
+}
+.service .container{
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    margin-bottom:50px;
+}
+.service .container p{
+    text-align: left;
+}
+.service .container-item .circle{
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 16px 100px ;
+    display: flex;
+    /* 以下兩行把img置中 */
+    align-items: center;
+    justify-content: center;
+    /* 陰影:X座標,y座標,模糊程度,顏色*/
+    box-shadow: 0 0 8px rgb(83, 82, 82);
+}
+.service .container-item .circle img{
+    width: 70px;
+}
+.recommend{
+    width: 100%;
+}
+.recommend h2{
+    font-size: 36px;
+    text-align: center;
+    margin-top:80px;
+}
+.recommend h2 span{
+    color: rgb(34, 115, 238);
+}
+.brand-wrap .brand-logo{
+    display: flex;
+    margin: 20px 140px;
+    border-bottom: 1px solid rgb(223, 223, 223);
+}
+.brand-wrap .brand-logo img{
+    margin: 30px 60px;
+}
+.brand-wrap .brand-logo li:hover{
+    border-bottom:5px solid rgb(34, 115, 238);
+}
+.recommend .brand-item{
+    display: flex;
+    margin: 20px 160px 60px 160px;
+}
+.brand-item .brand-item-text{
+    padding: 0 20px 0 0;
+}
+.brand-item .brand-item-text a{
+    text-decoration: none;
+    color: rgb(34, 115, 238);;
+}
+.brand-item .brand-item-text p{
+    margin: 60px 0 0 0;
+}
+.brand-item .brand-item-text .manager{
+    margin-top: 110px;
+}
+.footbanner{
+    width: 100%;
+    height: 400px;
+    background-color: rgb(6, 40, 92);
+    background-image: url(footbanner.png);
+    background-repeat: no-repeat;
+    background-position: -300px -30px;
+}
+.footbanneritem{
+    display: flex;
+}
+.footbanneritem .footbanneritem-pic{
+    width: 40%;
+    padding: 92px 0 0 0;
+}
+.footbanneritem-pic img{
+    width: 600px;
+}
+.footbanneritem .footbanneritem-text{
+    width: 60%;
+    padding: 120px 0 0 120px;
+}
+.footbanneritem .footbanneritem-text h3{
+    font-size: 40px;
+    color: white;
+}
+.footbanneritem .footbanneritem-text button{
+    margin: 60px 0;
+    background-color: rgb(24, 104, 224);
+    color: white;
+    border: none;
+    width: 320px;
+    height: 40px;
+    border-radius: 80px;
+}
+.footbanneritem .footbanneritem-text button:hover{
+    background-color: rgb(18, 85, 187);
+}
+.footerlist{
+    background-color: rgb(6, 13, 51);
+    padding: 120px 0 ;
+}
+.footerlist .footerlist-wrap{
+    display: flex;
+    justify-content: space-evenly;
+}
+.footerlist-wrap .footerlist-wrap-item h4{
+    font-size: 20px;
+    color: white;
+    margin: 30px 0 ;
+}
+.footerlist-wrap .footerlist-wrap-item li{
+    color: rgb(184, 184, 184);
+    margin: 15px 0;
+}
+.footerlist-wrap .footerlist-wrap-item li:hover{
+    color: white;
+}
