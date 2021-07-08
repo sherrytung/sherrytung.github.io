@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 微軟正黑體;
+        }
+
+        #menu-control {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .header {
+            width: 100%;
+            position: fixed;
+            background-color: white;
+        }
+
+        .header .logo {
+            width: 150px;
+            padding: 20px;
+        }
+
+        .header .logo img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .header .menu-btn {
+            width: 30px;
+            height: 30px;
+            display: block;
+            position: absolute;
+            top: 5px;
+            right: 40px;
+        }
+
+        .header .menu-btn::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 26px;
+            background-color: #000C2B;
+            top: 20;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0 8px 0px #000C2B,
+                        0 -8px 0px #000C2B;
+        }
+        .header .main-menu{
+            width: 100%;
+            position: absolute;
+            background-color: rgb(248, 248, 248);
+            right: -100%;
+            transition: 1s;
+        }
+        #menu-control:checked ~ .header .main-menu{
+            right: 0;
+        }
+        .header nav {
+            top: 62px;
+            padding: 26px 26px 0 26px;
+            box-sizing: border-box;
+        }
+        .header nav a {
+            display: block;
+            text-decoration: none;
+            width: 100%;
+            border-bottom: 1px solid rgb(236, 236, 236);
+            color: #000C2B;
+            padding: 26px 20px;
+            box-sizing: border-box;
+        }
+        .header i {
+            padding: 0 6px;
+        }
+        .header .other {
+            width: 100%;
+            padding: 26px 20px;
+            box-sizing: border-box;
+        }
+        .header .other .for-free {
+            border: 2px solid rgb(24, 104, 224);
+            background-color: rgb(24, 104, 224);
+            border-radius: 80px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header .other .for-free a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .header .other .for-free:hover {
+            border: 2px solid #0747A6;
+            background-color: #0747A6;
+        }
+
+        .header .other .log-in {
+            border-radius: 80px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 16px;
+            border: 2px solid rgb(24, 104, 224);
+        }
+
+        .header .other .log-in a {
+            text-decoration: none;
+            color: rgb(24, 104, 224);
+        }
+
+        .header .other .log-in:hover {
+            border: 2px solid #0747A6;
+        }
+
+        .header .other .log-in:hover a {
+            color: #0747A6;
+        }
+
+        .header .help {
+            background-color: #000C2B;
+            display: flex;
+            padding: 16px;
+        }
+
+        .header .help li {
+            width: 50%;
+            text-align: center;
+        }
+
+        .header .help li:nth-child(1) {
+            border-right: 2px solid rgb(236, 236, 236);
+        }
+
+        .header .help a {
+            color: white;
+            text-decoration: none;
+        }
+        .banner{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding-top: 100px;
+            background-image: url(mainbanner.png);
+            background-repeat: no-repeat;
+        }
+        .banner-text{
+            padding: 0 36px;
+            box-sizing: border-box;
+            color: white;
+        }
+        .banner .banner-text h2 {
+            font-size: 40px;
+        }   
+        .banner .banner-text h2:nth-child(2) {
+            color: #ff6700;
+        }
+        .banner .banner-text p {
+            font-size: 16px;
+            margin-top: 30px;
+            line-height: 30px;
+        }
+        .banner-pic{
+            padding: 40px;
+        }
+        .banner-pic img{
+            width: 100%;
+        }
+        .banner-text .email-type input {
+            width: 280px;
+            height: 40px;
+            margin: 30px 0 0 0;
+            background-color: transparent;
+            outline: none;
+            color: white;
+            border: white;
+            border-bottom: 1px solid white;
+        }
+        .banner-text .email-type button {
+            background-color: rgb(24, 104, 224);
+            color: white;
+            border: none;
+            width: 140px;
+            height: 46px;
+            border-radius: 80px;
+            margin: 30px 0 0 10px;
+            font-size: 16px;
+
+        }
+
+        .banner-text .email-type button:hover {
+            background-color: rgb(18, 85, 187);
+        }
+        .about h2 {
+            text-align: center;
+            margin: 60px 0 30px 0;
+            font-size: 36px;
+            line-height: 1.5;
+        }
+
+        .about p {
+            text-align: center;
+            font-size: 16px;
+            line-height: 2;
+        }
+        .wrap{
+            margin-top: 60px;
+            padding: 34px;
+        }
+        .wrap .item{
+            border-bottom: 1px solid rgb(223, 223, 223);
+        }
+        .item:nth-child(4) {
+            border-bottom: none;
+        }
+        .wrap .item .pic{
+            padding: 20px;
+        }
+        .wrap .item .pic img{
+            width: 100%;
+        }
+        .wrap .item .text h3 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .wrap .item .text p {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 2;
+        }
+        .item .text .list {
+            width: 100%;
+            display: flex;
+            margin: 20px 0;
+        }
+        .item .text .list i {
+            color: rgb(79, 145, 245);
+            background-color: rgb(215, 228, 247);
+            border-radius: 50%;
+            padding: 4px;
+            margin: 6px 10px;
+        }
+        .item .text .list ul {
+            width: 50%;
+        }
+        .item .text .more{
+            margin-bottom: 50px;
+
+        }
+        .item .text .more a {
+            text-decoration: none;
+            color: rgb(79, 145, 245);
+            font-weight: bold;
+        }  
+        .service {
+            width: 100%;
+            background-color: rgb(241, 241, 241);
+            padding: 50px 0;
+        }
+        .service h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .service .container {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+.service .container p {
+    text-align: left;
+    padding: 20px;
+}
+.service .container-item .circle {
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 16px 64px;
+    display: flex;
+    /* 以下兩行把img置中 */
+    align-items: center;
+    justify-content: center;
+    /* 陰影:X座標,y座標,模糊程度,顏色*/
+    box-shadow: 0 0 8px rgb(189, 189, 189);
+}
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="menu-control">
+    <div class="header">
+        <div class="logo">
+            <img src="original.png">
+        </div>
+        <label for="menu-control" class="menu-btn">
+            <span></span>
+        </label>
+        <div class="main-menu">
+            <nav>
+                <a href="#">開店服務<i class="fas fa-angle-down"></i></a>
+                <a href="#">方案費用<i class="fas fa-angle-down"></i></a>
+                <a href="#">客戶案例</a>
+                <a href="#">開店說明會</a>
+                <a href="#">開店諮詢</a>
+                <a href="#">更多解決方案<i class="fas fa-angle-down"></i></a>
+                <a href="#">其他資源<i class="fas fa-angle-down"></i></a>
+            </nav>
+            <div class="other">
+                <div class="for-free">
+                    <a href="#">免費試用</a>
+                </div>
+                <div class="log-in">
+                    <a href="#">登入網店</a>
+                </div>
+            </div>
+            <ul class="help">
+                <li><a href="#">開店諮詢</a></li>
+                <li><a href="#">開店說明會</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="banner-text">
+            <h2>想在哪開店創業？</h2>
+            <h2>社群購物貼近顧客零距離</h2>
+            <p><strong>超過25萬品牌使用！從個人賣家到國際品牌，都能以SHOPLINE實現全通路零售，快速拓展市場到世界各地，輕鬆開始你的『店』商生意！</strong></p>
+            <div class="email-type">
+                <input type="email" placeholder="請在此輸入電子信箱(可隨時更換)">
+                <button type="submit">免費試用</button>
+            </div>
+        </div>
+        <div class="banner-pic">
+            <img src="banner.png">
+        </div>
+    </div>
+    <div class="about">
+        <h2>單一平台就能助你<br>在全通路輕鬆開店創業</h2>
+        <p>從網路商店架站到實體門市管理，只需要一個平台，就能輕鬆實現開店創業，<br>並能同步管理所有銷售管道，SHOPLINE 助你賣得更多、賣得更好！</p>
+    </div>
+    <div class="wrap">
+        <div class="item">
+            <div class="pic">
+                <img src="1.png">
+            </div>
+            <div class="text">
+                <h3>免寫程式、多款版型<br>輕鬆打造全能電商網站</h3>
+                <img src="wave.png">
+                <p>不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。</p>
+                <div class="list">
+                    <ul>
+                        <li><i class="fas fa-check"></i>豐富版型主題與字型搭配</li>
+                        <li><i class="fas fa-check"></i>獨有網址 ＆ SSL 安全憑證</li>
+                        <li><i class="fas fa-check"></i>一頁商店</li>
+                    </ul>
+                    <ul>
+                        <li><i class="fas fa-check"></i>RWD 響應式網頁設計</li>
+                        <li><i class="fas fa-check"></i>SEO 搜尋引擎優化</li>
+                        <li><i class="fas fa-check"></i>開放 HTML／CSS 編輯</li>
+                    </ul>
+                </div>
+                <div class="more">
+                    <a href="#">看看開店秘技 →</a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="2.png">
+            </div>
+            <div class="text">
+                <h3>支持海內外電商<br>金流、物流一次搞定</h3>
+                <img src="wave.png">
+                <p>支持在地及國際金流、物流串接服務，提供海內外顧客最便利的付款及送貨服務，加速消費者完成下單交易，大幅降低購物車放棄率！</p>
+                <div class="list">
+                    <ul>
+                        <li><i class="fas fa-check"></i>線上信用卡刷卡</li>
+                        <li><i class="fas fa-check"></i>超商代碼／條碼繳費</li>
+                        <li><i class="fas fa-check"></i>超商／宅配貨到付款</li>
+                    </ul>
+                    <ul>
+                        <li><i class="fas fa-check"></i>第三方金流／行動支付整合</li>
+                        <li><i class="fas fa-check"></i>多溫層宅配並指定運費</li>
+                        <li><i class="fas fa-check"></i>發票開立與串接</li>
+                    </ul>
+                </div>
+                <div class="more">
+                    <a href="#">了解更多金物流 →</a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="3.png">
+            </div>
+            <div class="text">
+                <h3>刺激下單，創造回購<br>行銷導流、促購模組任你玩</h3>
+                <img src="wave.png">
+                <p>多元優惠活動、會員集客機制、網紅分潤以及直播購物等豐富功能，將電商行銷玩法一網打盡，助你成功優化行銷活動成效，刺激顧客下單、吸引鐵粉回購！</p>
+                <div class="list">
+                    <ul>
+                        <li><i class="fas fa-check"></i>超過 20 種優惠促銷功能</li>
+                        <li><i class="fas fa-check"></i>會員分級／點數／購物金</li>
+                        <li><i class="fas fa-check"></i>Instagram 購物功能</li>
+                    </ul>
+                    <ul>
+                        <li><i class="fas fa-check"></i>社群直播購物系統</li>
+                        <li><i class="fas fa-check"></i>Facebook／Google／LINE 廣告追蹤</li>
+                        <li><i class="fas fa-check"></i>Facebook／LINE 對話式購物</li>
+                    </ul>
+                </div>
+                <div class="more">
+                    <a href="#">看更多優惠模組 →</a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="4.png">
+            </div>
+            <div class="text">
+                <h3>O2O 全通路無縫整併<br>輕鬆管理網店、門市以及其他通路</h3>
+                <img src="wave.png">
+                <p>不論是網店拓展門市，還是門市想發展網路生意，從商品、庫存、訂單等各項虛實店舖的資料都能完善整併，輕鬆實現全通路會員經營到多店營運。</p>
+                <div class="list">
+                    <ul>
+                        <li><i class="fas fa-check"></i>門市 POS 系統</li>
+                        <li><i class="fas fa-check"></i>門市快速集客工具</li>
+                        <li><i class="fas fa-check"></i>進銷庫存／調撥／多店管理</li>
+                    </ul>
+                    <ul>
+                        <li><i class="fas fa-check"></i>線上線下會員／商品／庫存整合</li>
+                        <li><i class="fas fa-check"></i>O2O 即時銷售報表分析</li>
+                        <li><i class="fas fa-check"></i>串接 Shopee 蝦皮購物庫存</li>
+                    </ul>
+                </div>
+                <div class="more">
+                    <a href="#">了解更多全通路整合 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="service">
+        <h2>更多功能與服務</h2>
+        <div class="container">
+            <div class="container-item">
+                <div class="circle">
+                    <img src="01.png">
+                </div>
+                <h3>強大庫存及訂單系統</h3>
+                <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感。</p>
+            </div>
+            <div class="container-item">
+                <div class="circle">
+                    <img src="02.png">
+                </div>
+                <h3>即時化商店業績分析</h3>
+                <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
+            </div>
+            <div class="container-item">
+                <div class="circle">
+                    <img src="03.png">
+                </div>
+                <h3>多國語系、幣值切換</h3>
+                <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-item">
+                <div class="circle">
+                    <img src="04.png">
+                </div>
+                <h3>專業顧問線上支援</h3>
+                <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
+            </div>
+            <div class="container-item">
+                <div class="circle">
+                    <img src="05.png">
+                </div>
+                <h3>廣告行銷加值服務</h3>
+                <p>由官方認證的專業投手團隊，協助品牌投遞Facebook、Google、LINE 等廣告。</p>
+            </div>
+            <div class="container-item">
+                <div class="circle">
+                    <img src="06.png">
+                </div>
+                <h3>老闆專屬成長社群</h3>
+                <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
