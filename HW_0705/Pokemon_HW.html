@@ -33,7 +33,7 @@
             let pokemons = '';
             for (let i = 1; i < 890; i++) {
                 let fileName = i.toString().padStart(3, "0");
-                let pathFile = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png';
+                let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
                 let pokemonImg = `<img src = '${pathFile}'>`;
                 pokemons += pokemonImg;
             }
@@ -46,7 +46,7 @@
             container.innerHTML = '';
             for (let i = 1; i < 890; i++) {
                 let fileName = i.toString().padStart(3, "0");
-                let pathFile = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png';
+                let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
                 let img = document.createElement('img');
                 img.setAttribute('src', pathFile);
 
