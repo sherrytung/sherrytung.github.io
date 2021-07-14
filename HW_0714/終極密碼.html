@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            width: 400px;
+            margin: auto;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .create{
+            display: block;
+            width: 100px;
+            height: 50px;
+            font-size: 16px;
+            font-weight:bold;
+            background-color: rgb(248, 179, 211);
+            border: none;
+            border-radius: 5px;
+            margin: auto;
+            margin-top: 30px;
+        }
+        .show-number{
+            width: 160px;
+            height: 36px;
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+            border: 1px solid black;
+            background-color: rgb(238, 238, 238);
+        }
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100px;
+            margin:auto;
+            margin-top: 10px;
+        }
+        .box button {
+            width: 30px;
+            height: 30px;
+            margin: auto;
+            margin-top: 2px;
+            background-color: rgb(248, 179, 211);
+            border: none;
+        }
+        .box button:hover {
+            background-color: hotpink;
+        }
+        .box button:nth-child(10) {
+            color: red;
+        }
+        .box button:nth-child(12) {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <span>0</span>
+        <span>~</span>
+        <span>100</span>
+    </div>
+
+    <button class="create">產生數字</button>
+
+    <div class="show-number"></div>
+
+    <div class="box">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>X</button>
+        <button>0</button>
+        <button>V</button>
+    </div>
+
+    <script>
+        //按下按鈕產生亂數
+        //https://ithelp.ithome.com.tw/articles/10197920
+        let btncreate = document.querySelectorAll('button')[0];
+        btncreate.onclick = function(){
+            function getRandom(min,max){
+            return Math.floor(Math.random()*(max-min+1))+min;
+            };
+            answer = getRandom(1,99)
+            console.log(answer);
+            btncreate.disabled = true;  //按下後不能再按
+        }
+        // -------------------------------------
+        //顯示猜的數字
+        let show = document.querySelectorAll('div')[1];
+        // -------------------------------------
+        //1
+        let btn1 = document.querySelectorAll('button')[1];
+        btn1.onclick = function(){
+            show.innerText +=1;
+        }
+        //2
+        let btn2 = document.querySelectorAll('button')[2];
+        btn2.onclick = function(){
+            show.innerText +=2;
+        }
+        //3
+        let btn3 = document.querySelectorAll('button')[3];
+        btn3.onclick = function(){
+            show.innerText +=3;
+        }
+        //4
+        let btn4 = document.querySelectorAll('button')[4];
+        btn4.onclick = function(){
+            show.innerText +=4;
+        }
+        //5
+        let btn5 = document.querySelectorAll('button')[5];
+        btn5.onclick = function(){
+            show.innerText +=5;
+        }
+        //6
+        let btn6 = document.querySelectorAll('button')[6];
+        btn6.onclick = function(){
+            show.innerText +=6;
+        }
+        //7
+        let btn7 = document.querySelectorAll('button')[7];
+        btn7.onclick = function(){
+            show.innerText +=7;
+        }
+        //8
+        let btn8 = document.querySelectorAll('button')[8];
+        btn8.onclick = function(){
+            show.innerText +=8;
+        }
+        //9
+        let btn9 = document.querySelectorAll('button')[9];
+        btn9.onclick = function(){
+            show.innerText +=9;
+        }
+        //0
+        let btn10 = document.querySelectorAll('button')[11];
+        btn10.onclick = function(){
+            show.innerText +=0;
+        }
+        //X(清空)
+        let btn11 = document.querySelectorAll('button')[10];
+        btn11.onclick = function(){
+            show.innerText = '';
+        }
+        // -------------------------------------
+        //V(送出答案判斷)
+        let btn12 = document.querySelectorAll('button')[12];
+
+        let Start = document.querySelectorAll('span')[0];
+        let End = document.querySelectorAll('span')[2];
+        Start.innerText = 0;
+        End.innerText = 100;
+        let rangemin, rangemax; //把Start和End的值傳進去
+
+        btn12.onclick = function(){
+            let guess = show.innerText; //把使用者輸入的數字傳給guess
+
+            if (guess == 0 || guess >100){
+                alert('請輸入1~99的數字');
+                show.innerText = '';
+            }
+            else if (guess > rangemax){
+                alert(`請勿輸入大於${rangemax}的數字`);
+            }
+            else if (guess < rangemin){
+                alert(`請勿輸入小於${rangemin}的數字`);
+            }
+           
+            else if ( guess > answer){
+                End.innerText = `${show.innerText}`;
+                rangemax = End.innerText;
+                show.innerText = '';
+            }
+            else if ( guess < answer){
+                Start.innerText = `${show.innerText}`;
+                rangemin = Start.innerText;
+                show.innerText = '';
+            }
+            else if ( guess == answer) { 
+                alert('答對了!');
+                show.innerText = '';
+                btncreate.disabled = false; //把產生數字的按鍵打開
+                Start.innerText = 0;   //數字歸零
+                End.innerText = 100; 
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
