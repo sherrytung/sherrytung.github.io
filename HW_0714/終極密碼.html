@@ -179,9 +179,11 @@
             }
             else if (guess > rangemax){
                 alert(`請勿輸入大於${rangemax}的數字`);
+                show.innerText = '';
             }
             else if (guess < rangemin){
                 alert(`請勿輸入小於${rangemin}的數字`);
+                show.innerText = '';
             }
            
             else if ( guess > answer){
